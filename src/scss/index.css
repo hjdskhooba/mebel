@@ -1,0 +1,28 @@
+@import url("./header.scss");
+@import url("./banner.scss");
+@import url("./card.scss");
+@import url("./form.scss");
+@import url("./hitSale.scss");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    resize: none;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+}
+
+.container{
+    max-width: 1180px;
+    padding: 0 20px;
+    margin: 0 auto;   
+}

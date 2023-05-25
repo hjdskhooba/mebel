@@ -1,0 +1,15 @@
+.hitSale {
+  padding: 30px 42px 0 0;
+  &__title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #414141;
+    margin-bottom: 25px;
+  }
+  &__row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}

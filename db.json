@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "email": "sultanboga4@gmail.com",
+            "name": "Baigeldy",
+            "surname": "Sultanov",
+            "phone": "+996772720772",
+            "street": "vladimirova",
+            "home": "164",
+            "point": 500,
+            "orders": []
+         }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "product",
+            "description": "first product"
+        }
+    ]
+}

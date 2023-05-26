@@ -1,13 +1,21 @@
 .hitSale {
-  padding: 30px 42px 0 0;
+  padding: 30px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   &__title {
+    width: 100%;
+    padding: 0 9px;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
     color: #414141;
     margin-bottom: 25px;
   }
-  &__row{
+  &__row {
+    padding: 10px 16.122px;
+    width: 100%;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;

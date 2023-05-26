@@ -1,6 +1,7 @@
+import HeaderCenter from "./HeaderCenter.jsx";
+import HeaderBottom from "./HeaderBottom.jsx";
 import HeaderTop from "./HeaderTop.jsx"
 import "../../../scss/header.scss";
-import HeaderCenter from "./HeaderCenter.jsx";
 
 const Header = () => {
   return (
@@ -8,6 +9,7 @@ const Header = () => {
       <HeaderTop/>
       <div className="container">
         <HeaderCenter/>
+        <HeaderBottom/>
       </div>
     </header>
   )

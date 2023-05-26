@@ -50,10 +50,46 @@
         &-icons{
             display: flex;
             align-items: center;
+            & > span{
+                cursor: pointer;
+            }
         }
         &-icon{
             color: black;
             font-size: 25px;
+        }
+    }
+    &__bottom{
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.07);
+        height: 70px;
+        &-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-item, &-item-last{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            &-last{
+                cursor: default;
+                p{
+                    cursor: pointer;
+                    color: red;
+                    text-transform: capitalize;
+                    margin-right: 20px;
+                }
+                img{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    @media (max-width: 922px) {
+        &__bottom{
+            display: none;
         }
     }
 }

@@ -60,6 +60,7 @@
         }
     }
     &__bottom{
+        overflow-x: auto;
         background: #FFFFFF;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.07);
         height: 70px;
@@ -67,11 +68,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 32px;
         }
         &-item, &-item-last{
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 7.22px;
             cursor: pointer;
             &-last{
                 cursor: default;
@@ -79,17 +81,13 @@
                     cursor: pointer;
                     color: red;
                     text-transform: capitalize;
-                    margin-right: 20px;
                 }
                 img{
                     cursor: pointer;
+                    margin: 0 12px;
+                    z-index: 2;
                 }
             }
-        }
-    }
-    @media (max-width: 922px) {
-        &__bottom{
-            display: none;
         }
     }
 }

@@ -1,0 +1,69 @@
+.footer{
+    &__body{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__left{
+        display: block;
+        &_lists{
+            margin: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            text-align: left;
+            &-list{
+                justify-content: left;
+                text-align: left;
+                display: block;
+                flex-wrap: wrap;
+                height: 68px;
+            }
+            li{
+                cursor: pointer;
+                &:active{
+                    cursor: default;
+                    color: gray;
+                }
+            }
+        }
+        .df{
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            & * {
+                cursor: pointer;
+                &:active{
+                    cursor: default;
+                    color: gray;
+                }
+            } 
+            .akcii{
+                color: red;
+            }
+        }
+    }
+    &__right{
+        text-align: right;
+        &-address{
+            max-width: 171px;
+            margin: 12px 0 12px auto;
+            display: block;
+        }
+        &-links{
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        &-link{
+            display: flex;
+            align-items: center;
+            gap: 6.102px;
+            & * {
+                color: #414141;
+            }
+            span{
+                transform: translateY(3px);
+            }
+        }
+    }
+}

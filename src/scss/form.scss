@@ -1,9 +1,14 @@
 .form {
-  padding: 21px;
+  & * {
+    font-family: "Roboto", sans-serif;
+  }
+  align-items: flex-start;
   height: 100vh;
   max-height: 100%;
+  padding: 0 21px;
   &__logo {
-    margin-bottom: 102px;
+    padding-top: 22px;
+    margin-bottom: 62px;
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
@@ -21,10 +26,15 @@
     &-text {
       font-family: "Poppins";
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 16px;
       line-height: 24px;
       color: #000000;
+      margin: 12px 0;
+      a {
+        font-weight: 600;
+        border-bottom: 1px solid blue;
+      }
     }
   }
   &__btn {
@@ -39,31 +49,95 @@
     color: #ffffff;
     width: 429px;
     height: 53px;
-    margin-top: 55px;
+    margin-top: 32px;
+    margin-bottom: 42px;
   }
   &__label {
-      &-text {
-          font-family: "Poppins";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 13px;
-          line-height: 20px;
-          color: #999999;
-        }
-      &-field{
-        padding-bottom: 3px;
-        width: 429px;
-        margin-top: 11px;
-        display: flex;
-        column-gap: 10px;
-        align-items: center;
-        border-bottom: 1px solid;
+    &-text {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 20px;
+      color: #999999;
     }
-    &-input{
+    &-field {
+      padding-bottom: 4.2px;
+      width: 429px;
+      margin-top: 2px;
+      margin-bottom: 8.122px;
+      display: flex;
+      column-gap: 10px;
+      align-items: center;
+      border-bottom: 1px solid;
+    }
+    &-input {
+      width: 100%;
+      outline: none;
+      bottom: none;
+      border: none;
+    }
+  }
+  &__right {
+    background: #000842;
+    border-radius: 15px;
+    position: fixed;
+    height: 100%;
+    max-height: 100vh;
+    z-index: 2;
+    width: 42%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h2{
+      padding-left: 52px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 60px;
+      color: #FFFFFF;
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+    p{
+      padding-left: 52px;
+      margin-bottom: 120.120px;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 30px;
+      color: #FFFFFF;
+
+    }
+  }
+  @media (max-width: 1000px) {
+    &__right{
+      display: none;
+    }
+  }
+  @media (min-width: 633px) {
+    display: flex;
+  }
+  @media (max-width: 633px) {
+    margin: 0 20px;
+    padding: 0;
+    width: 100%;
+    form{
+      width: 92%;
+      padding: 0;
+      margin: 0;
+      input{
+        width: 100%;        
+      }
+      .form__label-field{
         width: 100%;
-        outline: none;
-        bottom: none;
-        border: none;
+      }
     }
+    .form__btn{
+      width: 100%;
+    }
+    display: block;
   }
 }

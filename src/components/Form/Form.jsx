@@ -3,13 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../config/context/Context.jsx";
 import { AiOutlineMail } from "react-icons/ai";
 import { HiOutlineUser } from "react-icons/hi";
+import Logo from "../Layout/Header/Logo.jsx";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 import { useState, useRef } from "react";
 import { FiPhone } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
-import "../../scss/form.scss";
 import { useContext } from "react";
+import formImg from "../../assets/form/Rectangle 11.png"
+import "../../scss/form.scss";
 
 const Form = () => {
   const { loginUser, registerUser } = useContext(CustomContext);
@@ -42,7 +44,9 @@ const Form = () => {
     <div className="form">
       <div className="form__left">
         <p className="form__logo" ref={password}>
-          Your logo
+          <Link to="/">
+            <Logo />
+          </Link>
         </p>
         <form
           noValidate
@@ -206,7 +210,7 @@ const Form = () => {
                   },
                   pattern: {
                     value:
-                    /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/g,
+                      /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/g,
                     message:
                       "Пароль должен содержать не менее 8 символов, заглавную букву и число!",
                   },
@@ -246,7 +250,11 @@ const Form = () => {
           </button>
         </form>
       </div>
-      <div className="form__right"></div>
+      <div className="form__right">
+        <img src={formImg} alt="" />
+        <h2>Sign in to name</h2>
+        <p>Lorem Ipsum is simply</p>
+        </div>
     </div>
   );
 };

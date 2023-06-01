@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 // media
 import { FiPhone } from "react-icons/fi";
 import { TbTruckDelivery } from "react-icons/tb";

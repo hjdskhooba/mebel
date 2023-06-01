@@ -1,32 +1,32 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import "../../scss/card.scss";
 
-const Card = () => {
+const Card = ({ item }) => {
   return (
     <div className="card">
       <span className="card__fav">
         <AiOutlineHeart />
       </span>
-      <img src="" alt="" className="card__image"/>
-      <h3 className="card__title">Валенсия Beige</h3>
-      <p className="card__category">Барные стулья</p>
-      <p className="card__price">2 300₽</p>
+      <img src={item.image} alt="" className="card__image" />
+      <h3 className="card__title">{item.title}</h3>
+      <p className="card__category">{item.category}</p>
+      <p className="card__price">{item.price}₽</p>
       <div className="card__sizes">
         <h4 className="card__sizes-title">Размеры</h4>
         <div className="card__sizes-info">
           <p className="card__sizes-size">
             <span>Ширина</span>
-            43 СМ
+            {item.width} СМ
           </p>
           x
           <p className="card__sizes-size">
             <span>Глубина</span>
-            43 СМ
+            {item.deep} СМ
           </p>
           x
           <p className="card__sizes-size">
             <span>Высота</span>
-            77 СМ
+            {item.height} СМ
           </p>
         </div>
         <button className="card__sizes-btn">Добавить в корзину</button>

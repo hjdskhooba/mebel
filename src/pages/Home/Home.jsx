@@ -1,5 +1,5 @@
 import Banner from './Banner/Banner'
-import HitSale from './HitSale/HitSale'
+import HitSale from '../../components/HitSale/HitSale'
 
 const Home = () => {
   return (

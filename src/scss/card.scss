@@ -34,6 +34,9 @@
     top: 7px;
     right: 7px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.4);
+    }
   }
   &__image {
     width: 100%;

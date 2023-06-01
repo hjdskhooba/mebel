@@ -7,6 +7,7 @@ export const CustomContext = createContext();
 const Context = (props) => {
   const [user, setUser] = useState({ email: "" });
   const [hitSale, setHitSale] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
   // start userContext
@@ -14,6 +15,9 @@ const Context = (props) => {
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
       setUser(JSON.parse(localStorage.getItem("user")));
+    }
+    if (localStorage.getItem("favorites") !== null) {
+      setFavorites(JSON.parse(localStorage.getItem("favorites")));
     }
   }, []);
 
@@ -77,6 +81,24 @@ const Context = (props) => {
   };
 
   // end hitsale
+
+  // start favorites
+
+  const favoritesHandler = (payload) => {
+    let finded = favorites.some((item) => item.id === payload.id);
+    if (finded) {
+      setFavorites((prev) => prev.filter((item) => item.id !== payload.id));
+    } else {
+      setFavorites((prev) => [...prev, payload]);
+    }
+  };
+  
+  useEffect(()=>{
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  },[favorites])
+
+  // end favorites
+
   let value = {
     user,
     loginUser,
@@ -85,6 +107,8 @@ const Context = (props) => {
     logoutUser,
     getHitSale,
     hitSale,
+    favoritesHandler,
+    favorites,
   };
   return (
     <CustomContext.Provider value={value}>

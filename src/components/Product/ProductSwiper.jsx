@@ -9,9 +9,9 @@ import "../../scss/product.scss";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
-export default () => {
+export default ({ product }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  
   return (
     <div className="product__swiper">
       <Swiper
@@ -22,16 +22,20 @@ export default () => {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="" />
+          <img
+            src={"../../" + product.images[0]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="" />
+          <img src={"../../" + product.images[1]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="" />
+          <img src={"../../" + product.images[2]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="" />
+          <img src={"../../" + product.images[3]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="" />
@@ -67,16 +71,16 @@ export default () => {
         freeMode={true}
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="" />
+          <img src={"../../" + product.images[0]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="" />
+          <img src={"../../" + product.images[1]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="" />
+          <img src={"../../" + product.images[2]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="" />
+          <img src={"../../" + product.images[3]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="" />

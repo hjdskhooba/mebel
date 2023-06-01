@@ -4,15 +4,21 @@
     {
       "id": 1,
       "title": "Валенсия Beige",
-      "category": "Барные стулья", 
+      "category": "Барные стулья",
       "price": 2300,
       "width": "43",
       "deep": "43",
       "height": "77",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product1.png"
+      "images": [
+        "./src/assets/product/product1.png",
+        "./src/assets/product/product1.png",
+        "./src/assets/product/product1.png",
+        "./src/assets/product/product1.png"
+      ]
     },
     {
       "id": 2,
@@ -24,8 +30,14 @@
       "height": "77",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product2.png"
+      "images": [
+        "./src/assets/product/product2.png",
+        "./src/assets/product/product2.png",
+        "./src/assets/product/product2.png",
+        "./src/assets/product/product2.png"
+      ]
     },
     {
       "id": 3,
@@ -38,7 +50,12 @@
       "rating": 0,
       "sale": 37990,
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product3.png"
+      "images": [
+        "./src/assets/product/product3.png",
+        "./src/assets/product/product3.png",
+        "./src/assets/product/product3.png",
+        "./src/assets/product/product3.png"
+      ]
     },
     {
       "id": 4,
@@ -50,8 +67,14 @@
       "height": "99",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product4.png"
+      "images": [
+        "./src/assets/product/product4.png",
+        "./src/assets/product/product4.png",
+        "./src/assets/product/product4.png",
+        "./src/assets/product/product4.png"
+      ]
     },
     {
       "id": 5,
@@ -63,8 +86,14 @@
       "height": "109",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product5.png"
+      "images": [
+        "./src/assets/product/product5.png",
+        "./src/assets/product/product5.png",
+        "./src/assets/product/product5.png",
+        "./src/assets/product/product5.png"
+      ]
     },
     {
       "id": 6,
@@ -76,8 +105,14 @@
       "height": "179",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product6.png"
+      "images": [
+        "./src/assets/product/product6.png",
+        "./src/assets/product/product6.png",
+        "./src/assets/product/product6.png",
+        "./src/assets/product/product6.png"
+      ]
     },
     {
       "id": 7,
@@ -89,8 +124,14 @@
       "height": "109",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product7.png"
+      "images": [
+        "./src/assets/product/product7.png",
+        "./src/assets/product/product7.png",
+        "./src/assets/product/product7.png",
+        "./src/assets/product/product7.png"
+      ]
     },
     {
       "id": 8,
@@ -102,8 +143,14 @@
       "height": "109",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product8.png"
+      "images": [
+        "./src/assets/product/product8.png",
+        "./src/assets/product/product8.png",
+        "./src/assets/product/product8.png",
+        "./src/assets/product/product8.png"
+      ]
     },
     {
       "id": 9,
@@ -115,8 +162,14 @@
       "height": "88",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product9.png"
+      "images": [
+        "./src/assets/product/product9.png",
+        "./src/assets/product/product9.png",
+        "./src/assets/product/product9.png",
+        "./src/assets/product/product9.png"
+      ]
     },
     {
       "id": 10,
@@ -128,8 +181,14 @@
       "height": "90",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product10.png"
+      "images": [
+        "./src/assets/product/product10.png",
+        "./src/assets/product/product10.png",
+        "./src/assets/product/product10.png",
+        "./src/assets/product/product10.png"
+      ]
     },
     {
       "id": 11,
@@ -141,8 +200,14 @@
       "height": "190",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product11.png"
+      "images": [
+        "./src/assets/product/product11.png",
+        "./src/assets/product/product11.png",
+        "./src/assets/product/product11.png",
+        "./src/assets/product/product11.png"
+      ]
     },
     {
       "id": 12,
@@ -154,8 +219,14 @@
       "height": "190",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product12.png"
+      "images": [
+        "./src/assets/product/product12.png",
+        "./src/assets/product/product12.png",
+        "./src/assets/product/product12.png",
+        "./src/assets/product/product12.png"
+      ]
     },
     {
       "id": 13,
@@ -167,8 +238,14 @@
       "height": "70",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product13.png"
+      "images": [
+        "./src/assets/product/product13.png",
+        "./src/assets/product/product13.png",
+        "./src/assets/product/product13.png",
+        "./src/assets/product/product13.png"
+      ]
     },
     {
       "id": 14,
@@ -180,8 +257,14 @@
       "height": "70",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product14.png"
+      "images": [
+        "./src/assets/product/product14.png",
+        "./src/assets/product/product14.png",
+        "./src/assets/product/product14.png",
+        "./src/assets/product/product14.png"
+      ]
     },
     {
       "id": 15,
@@ -193,8 +276,14 @@
       "height": "100",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product15.png"
+      "images": [
+        "./src/assets/product/product15.png",
+        "./src/assets/product/product15.png",
+        "./src/assets/product/product15.png",
+        "./src/assets/product/product15.png"
+      ]
     },
     {
       "id": 16,
@@ -206,8 +295,14 @@
       "height": "100",
       "rating": 0,
       "sale": 0,
+      "cards": [],
       "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
-      "image": "./src/assets/product/product16.png"
+      "images": [
+        "./src/assets/product/product16.png",
+        "./src/assets/product/product16.png",
+        "./src/assets/product/product16.png",
+        "./src/assets/product/product16.png"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
-import { CustomContext } from "../../../config/context/Context";
-import Card from "../../../components/Card/Card";
-import "../../../scss/hitSale.scss";
+import { CustomContext } from "../../config/context/Context";
 import { useContext, useEffect, Fragment } from "react";
+import Card from "../Card/Card";
+import "../../scss/hitSale.scss";
 
 const HitSale = () => {
   const { hitSale, getHitSale } = useContext(CustomContext);
@@ -17,7 +17,7 @@ const HitSale = () => {
         <div className="hitSale__row">
           {hitSale.map((item) => (
             <Fragment key={item.id}>
-              <Card item={item}/>
+              <Card item={item} />
             </Fragment>
           ))}
         </div>

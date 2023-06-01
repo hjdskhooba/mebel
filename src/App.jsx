@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
 import './scss/index.css';
+import Cart from "./components/Layout/Cart/Cart";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/favorites" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 

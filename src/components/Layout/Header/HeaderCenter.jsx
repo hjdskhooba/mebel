@@ -9,7 +9,7 @@ import Logo from "./Logo.jsx";
 
 const HeaderCenter = () => {
   const { user, logoutUser } = useContext(CustomContext);
-  const location = useLocation()
+  const location = useLocation();
   return (
     <nav className="header__center">
       <Link to={"/"}>
@@ -26,10 +26,7 @@ const HeaderCenter = () => {
         />
       </div>
       <div className="header__center-icons">
-        <Link
-          to={user?.email.length ? "/favorites" : "/login"}
-          className="header__center-icon"
-        >
+        <Link to={"/favorites"} className="header__center-icon">
           <AiOutlineHeart />
         </Link>
         <Link
@@ -38,12 +35,18 @@ const HeaderCenter = () => {
         >
           <HiOutlineShoppingBag />
         </Link>
-        { location.pathname !== "/room" ? <Link
-          to={user?.email.length ? "/room" : "/login"}
-          className="header__center-icon"
-        >
-          <BiUser />
-        </Link> : <span className="logout" onClick={logoutUser}>Выйти</span>}
+        {location.pathname !== "/room" ? (
+          <Link
+            to={user?.email.length ? "/room" : "/login"}
+            className="header__center-icon"
+          >
+            <BiUser />
+          </Link>
+        ) : (
+          <span className="logout" onClick={logoutUser}>
+            Выйти
+          </span>
+        )}
       </div>
     </nav>
   );

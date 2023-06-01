@@ -1,18 +1,37 @@
-import ProductInfo from "../../components/Product/ProductInfo"
-import ProductSwiper from "../../components/Product/ProductSwiper"
+import ProductSwiper from "../../components/Product/ProductSwiper";
+import ProductInfo from "../../components/Product/ProductInfo";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import api from "../../config/api/api";
+import HitSale from "../../components/HitSale/HitSale";
 
 const Product = () => {
+  const [product, setProduct] = useState({});
+  const params = useParams();
 
-  return (
-    <section className='product'>
-      <div className="container">
-        <div className="product__row">
-          <ProductSwiper/>
-          <ProductInfo/>
+  useEffect(() => {
+    api(`products/${params.id}`)
+      .json()
+      .then((res) => setProduct(res));
+  }, []);
+
+  if ("id" in product) {
+    return (
+      <>
+      <section className="product">
+        <div className="container">
+          <div className="product__row">
+            <ProductSwiper product={product} />
+            <ProductInfo product={product} />
+          </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+      <HitSale/>
+      </>
+    );
+  } else {
+    return <h2>Loading...</h2>;
+  }
+};
 
-export default Product
+export default Product;

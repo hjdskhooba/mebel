@@ -10,7 +10,7 @@
   }
 
   .mySwiper .swiper-slide-thumb-active {
-    opacity: 1;
+    opacity: 1;  
   }
 
   &__info {
@@ -91,14 +91,14 @@
   }
   .mySwiper2 {
     img {
-      object-fit: cover;
+      object-fit: contain;
       height: 354px;
       width: 100%;
     }
   }
   .mySwiper {
     img {
-      object-fit: cover;
+      object-fit: contain;
       height: 90px;
       width: 100%;
     }

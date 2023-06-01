@@ -23,7 +23,7 @@ const HitSale = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HitSale
+export default HitSale;

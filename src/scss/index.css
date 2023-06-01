@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("./hitSale.scss");
 @import url("./header.scss");
+@import url("./footer.scss");
 @import url("./banner.scss");
 @import url("./card.scss");
 @import url("./form.scss");
-@import url("./hitSale.scss");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -15,7 +16,9 @@
     list-style-type: none;
     text-decoration: none;
 }
-
+body, html, #root{
+    height: 100%;
+}
 button{
     cursor: pointer;
     border: none;

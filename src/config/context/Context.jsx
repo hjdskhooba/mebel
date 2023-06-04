@@ -8,9 +8,13 @@ const Context = (props) => {
   const [user, setUser] = useState({ email: "" });
   const [hitSale, setHitSale] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [search, setSearch] = useState("");
+  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("");
+  const [sort, setSort] = useState("");
   const navigate = useNavigate();
-
-  // start userContext
+  
+  // start user auth
 
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
@@ -20,7 +24,8 @@ const Context = (props) => {
       setFavorites(JSON.parse(localStorage.getItem("favorites")));
     }
   }, []);
-
+  
+  
   const registerUser = (user) => {
     api
       .post("register", {
@@ -58,7 +63,7 @@ const Context = (props) => {
         navigate("/");
         localStorage.setItem("user", JSON.stringify(res.user));
       });
-  };
+    };
   const logoutUser = () => {
     if (confirm("Вы уверен что хотите выйти из акаунта ?")) {
       setUser({ email: "" });
@@ -69,15 +74,42 @@ const Context = (props) => {
       console.log("Вы чуть не вышли из акаунта");
     }
   };
+  
+  // end user auth
 
-  // end userContext
+  // start catalog
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearch(e.target.children[1].value);
+    location.pathname !== "/catalog" && navigate("/catalog");
+  };
+  const handleCategory = (category) => {
+    setSearch(category);
+    location.pathname !== "/catalog" && navigate("/catalog");
+  };
+  const getProducts = () => {
+    const queryParams = `${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? "_sort=rate&_order=desc&" : ""}`
+    api(`products?` + queryParams)
+      .json()
+      .then((res) => {
+        search.split(" ").forEach(l => {
+          setProducts(search.length ? res.filter(i => new RegExp(l, "gi").test(i.description + i.title + i.category)) : res)
+        })
+      });
+    };
+  useEffect(()=>{
+    getProducts()
+  },[search, sort, category])
+
+  // end catalog
 
   // start hitsale
-
+  
   const getHitSale = () => {
     api("products?_sort=sale&_order=desc&_limit=12")
-      .json()
-      .then((res) => setHitSale(res));
+    .json()
+    .then((res) => setHitSale(res));
   };
 
   // end hitsale
@@ -99,6 +131,11 @@ const Context = (props) => {
 
   // end favorites
 
+  const objectWithHighestPrice = products.length ? products.reduce((maxPriceObj, currentObj) => {
+    return currentObj.price > maxPriceObj.price ? currentObj : maxPriceObj;
+  }) : {price: 100000};
+  const [slider, setSlider] = useState([0, +objectWithHighestPrice.price])
+  
   let value = {
     user,
     loginUser,
@@ -109,6 +146,16 @@ const Context = (props) => {
     hitSale,
     favoritesHandler,
     favorites,
+    products,
+    search,
+    handleSearch,
+    handleCategory,
+    sort, 
+    setSort,
+    category,
+    setCategory,
+    slider,
+    setSlider
   };
   return (
     <CustomContext.Provider value={value}>

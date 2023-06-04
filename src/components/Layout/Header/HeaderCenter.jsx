@@ -8,14 +8,15 @@ import { useContext } from "react";
 import Logo from "./Logo.jsx";
 
 const HeaderCenter = () => {
-  const { user, logoutUser } = useContext(CustomContext);
+  const { user, logoutUser, handleSearch } = useContext(CustomContext);
   const location = useLocation();
+
   return (
     <nav className="header__center">
       <Link to={"/"}>
         <Logo />
       </Link>
-      <div className="header__center-search">
+      <form onSubmit={handleSearch} className="header__center-search">
         <div className="header__center-glass">
           <HiSearch />
         </div>
@@ -24,7 +25,7 @@ const HeaderCenter = () => {
           className="header__center-field"
           placeholder="Поиск"
         />
-      </div>
+      </form>
       <div className="header__center-icons">
         <Link to={"/favorites"} className="header__center-icon">
           <AiOutlineHeart />

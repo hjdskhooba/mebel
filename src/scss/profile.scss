@@ -1,0 +1,11 @@
+.profile{
+    height: 50%;
+    &__user{
+        &-pair{
+            display: flex;
+            margin: 10px 0;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}

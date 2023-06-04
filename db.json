@@ -1,10 +1,25 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "sultanBOGA4@gmail.com",
+      "password": "$2a$10$SJqBCBT.Rhrwc1zFm6k38uNEjOdT9pR9Od0DZ5b2argeL1h134.b.",
+      "name": "Байгелди",
+      "surname": "Абдыхашымов",
+      "phone": "+996(772)72-07-72",
+      "point": 0,
+      "orders": [],
+      "carts": [],
+      "city": "",
+      "home": "",
+      "street": "",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,
       "title": "Валенсия Beige",
-      "category": "Барные стулья",
+      "category": "Барные стулья, кухни",
       "price": 2300,
       "width": "43",
       "deep": "43",

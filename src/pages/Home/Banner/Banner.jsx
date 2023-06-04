@@ -8,6 +8,7 @@ import "swiper/css";
 
 // import required modules
 import { Navigation, Autoplay } from "swiper";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -22,7 +23,7 @@ const Banner = () => {
               </h2>
             </div>
             <p className="banner__text">Современная и удобная мебель в Анапе</p>
-            <button className="banner__btn">Смотреть каталог</button>
+            <Link to="/catalog" className="banner__btn">Смотреть каталог</Link>
           </SwiperSlide>
           <SwiperSlide>
             <div className="banner__info">
@@ -31,7 +32,7 @@ const Banner = () => {
               </h2>
             </div>
             <p className="banner__text">Современная и удобная мебель в Анапе</p>
-            <button className="banner__btn">Смотреть каталог</button>
+            <Link to="/catalog" className="banner__btn">Смотреть каталог</Link>
           </SwiperSlide>
           <SwiperSlide>
             <div className="banner__info">
@@ -40,7 +41,7 @@ const Banner = () => {
               </h2>
             </div>
             <p className="banner__text">Современная и удобная мебель в Анапе</p>
-            <button className="banner__btn">Смотреть каталог</button>
+            <Link to="/catalog" className="banner__btn">Смотреть каталог</Link>
           </SwiperSlide>
           <SwiperSlide>
             <div className="banner__info">
@@ -49,7 +50,7 @@ const Banner = () => {
               </h2>
             </div>
             <p className="banner__text">Современная и удобная мебель в Анапе</p>
-            <button className="banner__btn">Смотреть каталог</button>
+            <Link to="/catalog" className="banner__btn">Смотреть каталог</Link>
           </SwiperSlide>
         </Swiper>
       </div>

@@ -6,6 +6,8 @@ import five from "../../../assets/header/livingroom-icon.svg";
 import six from "../../../assets/header/office-icon.svg";
 import etc from "../../../assets/header/etc.svg";
 import { useState } from "react";
+import { useContext } from "react";
+import { CustomContext } from "../../../config/context/Context";
 
 const HeaderBottom = () => {
   const [list, setList] = useState([
@@ -16,12 +18,13 @@ const HeaderBottom = () => {
     { i: five, text: "Гостинные" },
     { i: six, text: "Офисная мебель" },
   ]);
+  const {handleCategory} = useContext(CustomContext);
   return (
     <div className="header__bottom">
       <div className="container">
         <div className="header__bottom-list">
           {list.map((item, idx) => (
-            <div className="header__bottom-item" key={idx}>
+            <div className="header__bottom-item" key={idx} onClick={()=>handleCategory(item.text)}>
               <img src={item.i} alt="" />
               <p>{item.text}</p>
             </div>

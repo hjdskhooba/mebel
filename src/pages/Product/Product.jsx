@@ -13,7 +13,8 @@ const Product = () => {
     api(`products/${params.id}`)
       .json()
       .then((res) => setProduct(res));
-  }, []);
+      window.scrollBy(0, -100000)
+  }, [params.id]);
 
   if ("id" in product) {
     return (

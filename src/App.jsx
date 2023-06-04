@@ -9,8 +9,8 @@ import About from "./pages/About/About";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
+import Cart from "./pages/Cart/Cart";
 import './scss/index.css';
-import Cart from "./components/Layout/Cart/Cart";
 
 function App() {
   return (

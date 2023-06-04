@@ -2,7 +2,7 @@
   padding: 30px 0px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   &__title {
     width: 100%;
     padding: 0 9px;
@@ -15,9 +15,31 @@
   &__row {
     padding: 10px 16.122px;
     width: 100%;
-    justify-content: center;
+    justify-content: start;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+  }
+  .pages{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 90px;
+    gap: 12px;
+    z-index: 102.120;
+    .page-to-click{
+      border-bottom: 1px solid black;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 100;
+      font-weight: 600;
+      padding: 2px 12px;
+      &:active{
+        user-select: none;
+        transform: translateY(1.2px);
+        color: rgb(100, 100, 100);
+      }
+    }
   }
 }

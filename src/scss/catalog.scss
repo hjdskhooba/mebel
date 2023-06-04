@@ -1,0 +1,75 @@
+.catalog{
+    padding: 30px 0 102px;
+    &__row{
+      display: flex;
+      column-gap: 30px;
+    }
+    &__aside{
+      width: 25%;
+      max-height: 620px;
+      padding: 20px;
+      background: #FFFFFF;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      position: sticky;
+  
+      &-title{
+        font-weight: 400;
+        font-size: 14px;
+        color: #414141;
+        margin-bottom: 10px;
+      }
+      &-content{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+  
+        &__sort{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        &__colors{
+          display: flex;
+          column-gap: 10px;
+        }
+      }
+      &-price{
+        font-weight: 400;
+        font-size: 13px;
+        color: #414141;
+        padding: 7px 23px;
+        background: #F8F8F8;
+        border-radius: 3px;
+        border: none;
+      }
+      &-colors{
+        width: 18px;
+        height: 18px;
+      }
+      &-checks{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+    &__content{
+      width: 75%;
+      .card{
+        width: calc(33.33333% - 20px);
+      }
+    }
+    b{
+        i{
+            font-size: 27px;
+            font-weight: 700;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: italic;
+        }
+    }
+    label{
+        margin: 8.2px 0 8.1020112px;
+    }
+  }

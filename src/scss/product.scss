@@ -6,7 +6,7 @@
     column-gap: 22px;
   }
   .mySwiper .swiper-slide {
-    opacity: 0.4;
+    opacity: 0.62;
   }
 
   .mySwiper .swiper-slide-thumb-active {
@@ -102,5 +102,8 @@
       height: 90px;
       width: 100%;
     }
+  }
+  .swiper-button-next, .swiper-button-prev{
+    color: black;
   }
 }

@@ -3,6 +3,7 @@
   position: relative;
   transition: all 300ms;
   max-height: max-content;
+  height: fit-content;
   @media (max-width: 922px) {
     width: calc(32% - 22.5px);
     padding: 0;
@@ -71,6 +72,37 @@
       color: #414141;
     }
     &-info {
+      overflow-x: auto;
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 1);
+        background-color: #ffffff;
+      }
+
+      &::-webkit-scrollbar {
+        height: 2px;
+        background-color: #ffffff;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        width: 1px;
+        min-width: 1px;
+        max-width: 1px;
+        background-color: white;
+        border: 1px solid #000000;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        width: 10px;
+        background: #ffffff;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        width: 10px;
+        background: #ffffff;
+      }
+
       display: flex;
       align-items: center;
       column-gap: 15px;

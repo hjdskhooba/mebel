@@ -50,4 +50,19 @@
   .swiper-button-prev{
     left: 30px;
   }
+  @media (max-width: 560px) {
+    .swiper-button-next, .swiper-button-prev{
+      display: none;
+    }
+    .banner__info{
+      padding: 20px;
+      height: 30vh;
+    }
+    .banner__text{
+      margin-bottom: 20px;
+    }
+    .banner__text, .banner__btn{
+      left: 20px;
+    }
+  }
 }

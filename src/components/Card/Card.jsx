@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "../../scss/card.scss";
 import { useContext } from "react";
 import { CustomContext } from "../../config/context/Context";
+import AddToCartBtn from "../AddToCartBtn";
 
 const Card = ({ item }) => {
-  const { favorites, favoritesHandler } = useContext(CustomContext);
+  const { favorites, favoritesHandler, user } = useContext(CustomContext);
+
   return (
     <div className="card">
       <span className="card__fav" onClick={() => favoritesHandler(item)}>
@@ -39,7 +41,7 @@ const Card = ({ item }) => {
             {item.height} СМ
           </p>
         </div>
-        <button className="card__sizes-btn">Добавить в корзину</button>
+        <AddToCartBtn product={item} children="Добавить в корзину"/>
       </div>
     </div>
   );

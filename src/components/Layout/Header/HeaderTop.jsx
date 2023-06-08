@@ -20,13 +20,13 @@ const HeaderTop = () => {
             </Link>
           </div>
           <div className="header__top-menu">
-            <a href="tel: 8 (966) 89 99 119" className="header__top-link">
+            <a href="tel: 8 (966) 89 99 119" className="header__top-link adp">
               <span>
                 <FiPhone />
               </span>
               8 (966) 89 99 119
             </a>
-            <a href="#" className="header__top-link">
+            <a href="#" className="header__top-link adp">
               <span>
                 <TbTruckDelivery />
               </span>

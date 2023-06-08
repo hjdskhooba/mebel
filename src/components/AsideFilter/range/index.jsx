@@ -1,36 +1,27 @@
 import * as React from "react";
+import { useContext } from "react";
+import debounce from "@material-ui/core/utils/debounce";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import { useContext } from "react";
 import { CustomContext } from "../../../config/context/Context";
 
-function valuetext(value) {
-  return `${value}°C`;
-}
-
 export default function RangeSlider() {
+  const { slider, setSlider, maxValue } = useContext(CustomContext);
   
-  const { products } = useContext(CustomContext);
-  
-  const objectWithHighestPrice = products.length ? products.reduce((maxPriceObj, currentObj) => {
-    return currentObj.price > maxPriceObj.price ? currentObj : maxPriceObj;
-  }) : {price: 10000};
-  
-  const [value, setValue] = React.useState([120, objectWithHighestPrice.price]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (e, newValue) => {
+    setSlider(newValue);
   };
-
+  
   return (
     <Box sx={{ maxWidth: 232 }}>
       <Slider
-        max={objectWithHighestPrice && +objectWithHighestPrice.price}
+        max={maxValue}
         getAriaLabel={() => "Temperature range"}
-        value={value}
-        onChange={handleChange}
+        defaultValue={slider}
+        onChange={debounce(handleChange, 1252)}
         valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
+        step={100}
+        min={0}
       />
     </Box>
   );

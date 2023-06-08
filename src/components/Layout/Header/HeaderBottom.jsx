@@ -10,15 +10,21 @@ import { useContext } from "react";
 import { CustomContext } from "../../../config/context/Context";
 
 const HeaderBottom = () => {
-  const [list, setList] = useState([
-    { i: one, text: "Спальни" },
-    { i: two, text: "Детская" },
-    { i: three, text: "Прихожие" },
-    { i: four, text: "Кухни" },
-    { i: five, text: "Гостинные" },
-    { i: six, text: "Офисная мебель" },
-  ]);
+
+  const list = [
+    { i: one, text: "Барные стулья" },
+    { i: two, text: "Диваны" },
+    { i: three, text: "Двухспальные кровати" },
+    { i: four, text: "Буфеты" },
+    { i: five, text: "Комоды" },
+    { i: six, text: "Журнальные столы" },
+    { i: one, text: "Письменные столы" },
+    { i: two, text: "Шкафы" },
+    { i: three, text: "Детский диван" },
+  ];
+
   const {handleCategory} = useContext(CustomContext);
+
   return (
     <div className="header__bottom">
       <div className="container">

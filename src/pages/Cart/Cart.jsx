@@ -1,51 +1,102 @@
+import { useContext, useState } from "react";
 import { CustomContext } from "../../config/context/Context";
-import Card from './../../components/Card/Card';
+import "../../scss/cart.scss";
 import { useEffect } from "react";
-import { useContext } from "react";
-import { Fragment } from "react";
-import { useState } from "react";
 
 const Cart = () => {
-  const { favorites } = useContext(CustomContext);
-  const [page, setPage] = useState(1);
-  let favoritesPages = new Array(Math.ceil(favorites.length / 4)).fill(null, 0);
+  const { user, removeFromCart, addToCart } = useContext(CustomContext);
+  const [total, setTotal] = useState(
+    user.carts?.reduce((a, r) => a + r.price * r.count, 0)
+  );
 
-  useEffect(()=>{
-    if(page > favoritesPages.length && favoritesPages.length > 0){
-      setPage(favoritesPages.length)
-    };
-  },[favorites]);
-  
-  if(favorites.length){
-    return (
-      <>
-        <div className="hitSale">
-          <div className="container">
-            <h2 className="hitSale__title">Page: { page }</h2>
-            <div className="hitSale__row">
-              {favorites.filter((i, idx) => {
-                return idx >= page * 4 - 4 && idx < page * 4 
-              }).map((item) => (
-                <Fragment key={item.id}>
-                  <Card item={item}/>
-                </Fragment>
-              ))}
-            </div>
-            {favoritesPages.length > 1 && <ul className="pages">
-              {
-               favoritesPages.map((item, idx) => (
-                <li className="page-to-click" onClick={() => setPage(idx + 1)} key={idx}>{idx + 1}</li>
-               ))
-              }
-            </ul>
-            }
-          </div>
+  useEffect(() => {
+    setTotal(user.carts?.reduce((a, r) => a + r.price * r.count, 0));
+  }, [user.carts]);
+
+  return (
+    <section className="cart basket">
+      <div className="container">
+        <div className="cart__top">
+          <h2>Ваша корзина</h2>
+          <p className="cart__count">
+            В общем {user.carts?.reduce((a, r) => a + r.count, 0)} предметов
+          </p>
         </div>
-      </>
-    );
-  }else{
-    return <h2 className="title">Список избранных пуст</h2>
-  }
+        <div className="cart__row">
+          {user.carts?.map((item) => (
+            <div className="cart__card" key={item.id}>
+              <div className="cart__card-body">
+                <div className="cart__card-mob-btns">
+                  <img className="posle" src={"/" + item.images[0]} alt="" />
+                  <div>
+                    <p className="cart__card-price mob-p">{item.price}P </p> /{" "}
+                    <p className="cart__card-price mon-p">
+                      {" "}
+                      {item.price * item.count}P
+                    </p>
+                    <button
+                      className="cart__card-delete"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                <img className="do" src={"/" + item.images[0]} alt="" />
+                <div className="cart__card-info">
+                  <h3 className="card__card-title">{item.title}</h3>
+                  <br />
+                  <p className="cart__card-size">
+                    Размер(Ш×Г×В) {item.width} CM X {item.deep} CM X{" "}
+                    {item.height} CM
+                  </p>
+                  <br />
+                  <div className="cart__card-size btns">
+                    Количество{" "}
+                    <div className="card__sizes-count">
+                      <button
+                        style={{ background: "red" }}
+                        type="button"
+                        className="plus"
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        -
+                      </button>
+                      <span>{item.count}</span>
+                      <button
+                        style={{ background: "green" }}
+                        type="button"
+                        className="minus"
+                        onClick={() => addToCart(item)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="cart__card-body2">
+                <p className="cart__card-price">{item.price}P </p> <h2>/</h2>
+                <p className="cart__card-price">
+                  {item.price * item.count}P
+                </p>
+                <button
+                  className="cart__card-delete"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="cart__end">
+          <p className="cart__end-total">Итоговая стоимость: {total}P</p>
+          <button className="cart__end-checkout">Оформить заказ</button>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Cart;

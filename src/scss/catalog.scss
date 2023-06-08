@@ -56,10 +56,7 @@
       }
     }
     &__content{
-      width: 75%;
-      .card{
-        width: calc(33.33333% - 20px);
-      }
+      justify-content: center;
     }
     b{
         i{
@@ -71,5 +68,14 @@
     }
     label{
         margin: 8.2px 0 8.1020112px;
+    }
+    @media (max-width: 919px) {
+      &__row{
+        flex-direction: column;
+        .catalog__aside{
+          width: 100%;
+
+        }
+      }
     }
   }

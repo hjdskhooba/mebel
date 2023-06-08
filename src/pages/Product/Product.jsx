@@ -31,7 +31,7 @@ const Product = () => {
       </>
     );
   } else {
-    return <h2>Loading...</h2>;
+    return <h2 className="container hitSale">Loading...</h2>;
   }
 };
 

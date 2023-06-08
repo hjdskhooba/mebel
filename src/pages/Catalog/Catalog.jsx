@@ -6,7 +6,7 @@ import "../../scss/catalog.scss";
 
 const Catalog = () => {
   const { products, search } = useContext(CustomContext);
-
+  
   const mapProducts = () => {
     return products.length ? (
       products.map((item) => (

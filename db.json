@@ -2,13 +2,34 @@
   "users": [
     {
       "email": "sultanBOGA4@gmail.com",
-      "password": "$2a$10$SJqBCBT.Rhrwc1zFm6k38uNEjOdT9pR9Od0DZ5b2argeL1h134.b.",
+      "password": "$2a$10$Eq5H4f7ZGRP13TqgeIg0Z.uUv7SKwrbn2l8FFJzWureQR9zoNS56C",
       "name": "Байгелди",
       "surname": "Абдыхашымов",
       "phone": "+996(772)72-07-72",
       "point": 0,
       "orders": [],
-      "carts": [],
+      "carts": [
+        {
+          "id": 7,
+          "title": "Стелла Дуб Сонома",
+          "category": "Комоды",
+          "price": 8990,
+          "width": "100",
+          "deep": "0",
+          "height": "109",
+          "rating": 0,
+          "sale": 0,
+          "cards": [],
+          "description": "Лаконичные линии и простые формы, безупречный стиль и индивидуальность – все это диван «Динс». Сдержанный скандинавский дизайн украсит любую современную обстановку. Элегантность, комфорт и функциональность, собранные воедино – «Динс» просто создан для размеренного отдыха в кругу семьи или компании друзей!",
+          "images": [
+            "./src/assets/product/product7.png",
+            "./src/assets/product/product7.png",
+            "./src/assets/product/product7.png",
+            "./src/assets/product/product7.png"
+          ],
+          "count": 4
+        }
+      ],
       "city": "",
       "home": "",
       "street": "",

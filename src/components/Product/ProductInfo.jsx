@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BsFillBasketFill } from "react-icons/bs";
 import { CustomContext } from "../../config/context/Context";
 
-const ProductInfo = ({product}) => {
-  const colors = ["red", "green", "blue"];
-  const {favorites, favoritesHandler} = useContext(CustomContext);
+const ProductInfo = ({ product }) => {
+  const colors = ["gray", "lightblue", "blue"];
+  const { favorites, favoritesHandler, user, addToCart, removeFromCart } = useContext(CustomContext);
+  const inCart = user.carts?.find(el => el.id === product.id);
+  
   return (
     <div className="product__info">
       <h2 className="product__info-title">{product.title}</h2>
@@ -12,14 +15,30 @@ const ProductInfo = ({product}) => {
       <div className="product__info-row">
         <div className="product__info-price">{product.price}P</div>
         <button className="product__info-btn">Купить</button>
-        <p className="product__info-fav" onClick={() => favoritesHandler(product)}>
+        <div className="db">
+          <p
+            className="product__info-fav"
+            onClick={() => favoritesHandler(product)}
+          >
             {favorites.some((el) => el.id === product.id) ? (
               <AiFillHeart />
             ) : (
               <AiOutlineHeart />
             )}
-          Добавить в избранное
-        </p>
+            Добавить в избранное
+          </p>
+          <p className="product__info-fav cart-btn" onClick={() => addToCart(product)}>
+            {inCart ? (
+              <>
+              <BsFillBasketFill className="white"/>
+              <small className="count">{inCart.count > 0 && "(" + inCart.count + ")"}</small>
+              </>
+            ) : (
+              <BsFillBasketFill className="red"/>
+            )}
+            {user?.length ? "В корзину еще раз" : "В корзину"}{" "}
+          </p>
+        </div>
       </div>
       <div className="product__info-selects">
         <ul className="product__info-colors">
@@ -36,7 +55,7 @@ const ProductInfo = ({product}) => {
             ></li>
           ))}
         </ul>
-        <ul className="product__info-quanitiy">
+        <ul className="product__info-sizes">
           <li>
             {product.width} СМ х {product.height} СМ х {product.deep} СМ
           </li>
@@ -44,9 +63,7 @@ const ProductInfo = ({product}) => {
       </div>
       <div className="product__info-description">
         <h2>Oписание</h2>
-        <p>
-          {product.description}
-        </p>
+        <p>{product.description}</p>
       </div>
     </div>
   );

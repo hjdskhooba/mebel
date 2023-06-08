@@ -11,6 +11,12 @@
             justify-content: space-between;
             width: 400px;
             text-align: left;
+            @media (max-width: 890px) {
+                width: max-content;
+                max-width: 300px;
+                flex-direction: column;
+                gap: 12px;
+            }
             &-list{
                 justify-content: left;
                 text-align: left;
@@ -63,6 +69,24 @@
             }
             span{
                 transform: translateY(3px);
+            }
+        }
+        @media (max-width: 722px) {
+            &-links{
+                flex-direction: column;
+                margin-top: 20px;
+            }
+        }
+        @media (max-width: 560px) {
+            text-align: left;
+            &-address{
+                margin: 10px 0;
+            }
+            &-links{
+                display: block;
+            }
+            &-link{
+                margin: 12px 0;
             }
         }
     }

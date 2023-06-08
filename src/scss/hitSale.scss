@@ -1,8 +1,13 @@
+.title{
+  text-align: center;
+  margin: 239px auto;
+}
 .hitSale {
   padding: 30px 0px;
   width: 100%;
   display: flex;
   justify-content: start;
+  min-height: 523px;
   &__title {
     width: 100%;
     padding: 0 9px;
@@ -19,6 +24,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    height: max-content;
   }
   .pages{
     display: flex;
@@ -27,7 +33,7 @@
     align-items: center;
     margin-top: 90px;
     gap: 12px;
-    z-index: 102.120;
+    z-index: 102;
     .page-to-click{
       border-bottom: 1px solid black;
       cursor: pointer;
@@ -39,6 +45,10 @@
         user-select: none;
         transform: translateY(1.2px);
         color: rgb(100, 100, 100);
+      }
+      &.active{
+        color: blue;
+        transform: translateY(1px);
       }
     }
   }

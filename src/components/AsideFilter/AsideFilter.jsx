@@ -1,29 +1,58 @@
-import React from "react";
-import AsideSelects from "../AsideSelects/AsideSelects";
-import Checkbox from "@mui/material/Checkbox";
-import { useContext } from "react";
 import { CustomContext } from "../../config/context/Context";
+import AsideSelects from "../AsideSelects/AsideSelects";
+import { Button } from "@mui/material";
+import { useContext } from "react";
 import RangeSlider from "./range";
+import { HiSearch } from "react-icons/hi";
 
 const AsideFilter = () => {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const {category, setCategory, sort, setSort, slider, setSlider} = useContext(CustomContext);
-  const colors = ["red", "green", "blue"];
+  const { category, setCategory, sort, setSort, resetFilter, slider, handleSearch } =
+    useContext(CustomContext);
 
   return (
     <aside className="catalog__aside">
       <div className="catalog__aside-content">
         <h2 className="catalog__aside-title">Раздел</h2>
-        <AsideSelects title="Категории" state={category} setState={setCategory} array={["Барные стулья", "Диваны", "Двухспальные кровати", "Буфеты", "Камоды", "Журнальные столы", "Письменные столы", "Шкафы", "Детский диван"]} />
-        <AsideSelects title="Сортировать" state={sort} setState={setSort} array={["asc", "desc", "rate"]} />
+        <form onSubmit={handleSearch} className="header__center-search ru">
+          <div className="header__center-glass">
+            <HiSearch />
+          </div>
+          <input
+            type="search"
+            className="header__center-field"
+            placeholder="Поиск"
+          />
+        </form>
+        <AsideSelects
+          title="Категории"
+          state={category}
+          setState={setCategory}
+          array={[
+            "Барные стулья",
+            "Диваны",
+            "Двухспальные кровати",
+            "Буфеты",
+            "Комоды",
+            "Журнальные столы",
+            "Письменные столы",
+            "Шкафы",
+            "Детский диван",
+          ]}
+        />
+        <AsideSelects
+          title="Сортировать"
+          state={sort}
+          setState={setSort}
+          array={["asc", "desc", "rate"]}
+        />
       </div>
       <div className="catalog__aside-content">
         <h2 className="catalog__aside-title">Цена</h2>
 
-        <RangeSlider slider={slider} setSlider={setSlider}/>
+        <RangeSlider />
 
         <div className="catalog__aside-content__sort">
-          <div className="catalog__aside-price">2 000 ₽</div>
+          <div className="catalog__aside-price">{slider[0]} ₽</div>
           <span>
             <svg
               width="19"
@@ -35,31 +64,13 @@ const AsideFilter = () => {
               <rect width="19" height="2" fill="#414141" />
             </svg>
           </span>
-          <div className="catalog__aside-price">102 000 ₽</div>
+          <div className="catalog__aside-price">{slider[1]} ₽</div>
         </div>
       </div>
       <div className="catalog__aside-content">
-        <h2 className="catalog__aside-title">Цвет</h2>
-
-        <div className="catalog__aside-content__colors">
-          {colors.map((item, idx) => (
-            <div
-              key={idx}
-              className="catalog__aside-colors"
-              style={{ background: item }}
-            >
-              s
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="catalog__aside-content">
-        <h2 className="catalog__aside-title">Бренд</h2>
-        <div className="catalog__aside-checks">
-          <Checkbox {...label} />
-          <Checkbox {...label} />
-          <Checkbox {...label} />
-        </div>
+        <Button variant="contained" onClick={resetFilter}>
+          Сбросить
+        </Button>
       </div>
     </aside>
   );

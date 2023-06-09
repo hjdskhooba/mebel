@@ -84,10 +84,12 @@ const Cart = () => {
             </div>
           ))}
         </div>
-        <div className="cart__end">
+        {
+          user.carts.length && <div className="cart__end">
           <p className="cart__end-total">Итоговая стоимость: {total}P</p>
           <button className="cart__end-checkout" onClick={()=>navigate("/checkout")}>Оформить заказ</button>
         </div>
+        }
       </div>
     </section>
   );

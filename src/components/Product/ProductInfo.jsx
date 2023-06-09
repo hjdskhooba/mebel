@@ -1,20 +1,28 @@
-import { useContext } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { BsFillBasketFill } from "react-icons/bs";
 import { CustomContext } from "../../config/context/Context";
+import { BsFillBasketFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 
 const ProductInfo = ({ product }) => {
   const colors = ["gray", "lightblue", "blue"];
-  const { favorites, favoritesHandler, user, addToCart, removeFromCart } = useContext(CustomContext);
-  const inCart = user.carts?.find(el => el.id === product.id);
-  
+  const { favorites, favoritesHandler, user, addToCart } =
+    useContext(CustomContext);
+  const navigate = useNavigate();
+  const inCart = user.carts?.find((el) => el.id === product.id);
+  const buy = () => {
+    addToCart(product);
+    navigate("/checkout");
+  };
   return (
     <div className="product__info">
       <h2 className="product__info-title">{product.title}</h2>
       <p className="product__info-category">{product.category}</p>
       <div className="product__info-row">
         <div className="product__info-price">{product.price}P</div>
-        <button className="product__info-btn">Купить</button>
+        <button className="product__info-btn" onClick={buy}>
+          Купить
+        </button>
         <div className="db">
           <p
             className="product__info-fav"
@@ -27,14 +35,19 @@ const ProductInfo = ({ product }) => {
             )}
             Добавить в избранное
           </p>
-          <p className="product__info-fav cart-btn" onClick={() => addToCart(product)}>
+          <p
+            className="product__info-fav cart-btn"
+            onClick={() => addToCart(product)}
+          >
             {inCart ? (
               <>
-              <BsFillBasketFill className="white"/>
-              <small className="count">{inCart.count > 0 && "(" + inCart.count + ")"}</small>
+                <BsFillBasketFill className="white" />
+                <small className="count">
+                  {inCart.count > 0 && "(" + inCart.count + ")"}
+                </small>
               </>
             ) : (
-              <BsFillBasketFill className="red"/>
+              <BsFillBasketFill className="red" />
             )}
             {user?.length ? "В корзину еще раз" : "В корзину"}{" "}
           </p>

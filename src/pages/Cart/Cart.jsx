@@ -1,17 +1,11 @@
-import { useContext, useState } from "react";
 import { CustomContext } from "../../config/context/Context";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import "../../scss/cart.scss";
-import { useEffect } from "react";
 
 const Cart = () => {
-  const { user, removeFromCart, addToCart } = useContext(CustomContext);
-  const [total, setTotal] = useState(
-    user.carts?.reduce((a, r) => a + r.price * r.count, 0)
-  );
-
-  useEffect(() => {
-    setTotal(user.carts?.reduce((a, r) => a + r.price * r.count, 0));
-  }, [user.carts]);
+  const { user, removeFromCart, addToCart, total } = useContext(CustomContext);
+  const navigate = useNavigate();
 
   return (
     <section className="cart basket">
@@ -92,7 +86,7 @@ const Cart = () => {
         </div>
         <div className="cart__end">
           <p className="cart__end-total">Итоговая стоимость: {total}P</p>
-          <button className="cart__end-checkout">Оформить заказ</button>
+          <button className="cart__end-checkout" onClick={()=>navigate("/checkout")}>Оформить заказ</button>
         </div>
       </div>
     </section>

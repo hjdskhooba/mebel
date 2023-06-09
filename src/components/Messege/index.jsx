@@ -5,22 +5,45 @@ import "../../scss/messege.scss";
 
 const Messege = () => {
   const [visibility, setVisibility] = useState("");
-  const {messege} = useContext(CustomContext);
+  const { messege, setMessege } = useContext(CustomContext);
+  const [count, setCount] = useState(16);
   const navigate = useNavigate();
-  
+
   const show = () => {
-      setTimeout(()=>{
-        setVisibility("");
-      }, 5000); 
+    if (messege[0] !== "Ваш заказ размещен, ожидайте звонка") {
       setVisibility("active");
+
+      setTimeout(() => {
+        setVisibility("");
+      }, 5000);
+    } else {
+      setVisibility("active");
+      setInterval(() => {
+        setCount((prev) => {
+          if (prev < 2) {
+            setVisibility("");
+            navigate("/");
+            return 15;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
   };
-  
-  useEffect(()=>{
+  useEffect(() => {
+    setMessege([messege[0], "На главную"]);
+    setMessege([messege[0], "На главную" + " (" + count + ")"]);
+    count === 0 && navigate("/");
+  }, [count]);
+  useEffect(() => {
     messege[0].length && show();
-  },[messege])
+  }, [messege[0]]);
 
   const handleClick = () => {
-    setVisibility("")
+    setVisibility("");
+    if (/На Главную/gi.test(messege[1])) {
+      navigate("/");
+    }
     switch (messege[1]) {
       case "Корзина":
         navigate("/cart");
@@ -39,17 +62,20 @@ const Messege = () => {
         break;
       default:
         return null;
-    };
+    }
   };
 
   return (
     <div className={`messege ${visibility}`}>
-        <div className="in">
-            <h2>{messege[0]}</h2>
-            <button onClick={handleClick} className={`messege__button ${messege[1] ? "show" : "hide"}`}>
-                {messege[1]}
-            </button>
-        </div>
+      <div className="in">
+        <h2>{messege[0]}</h2>
+        <button
+          onClick={handleClick}
+          className={`messege__button ${messege[1] ? "show" : "hide"}`}
+        >
+          {messege[1]}
+        </button>
+      </div>
     </div>
   );
 };

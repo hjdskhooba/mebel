@@ -13,6 +13,7 @@ import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import Room from "./pages/Room/Room";
 import './scss/index.css';
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
         <Route path="/cart" element={<Cart/>} />
         <Route path="/room" element={<Room />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/checkout" element={<Checkout/>}/>
         <Route path="*" element={<NotFound />} />
       </Route>
-
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route/>

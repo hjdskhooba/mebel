@@ -13,8 +13,11 @@ const Context = (props) => {
   const [category, setCategory] = useState("");
   const [slider, setSlider] = useState([0, 30000]);
   const [maxValue, setMaxValue] = useState(30000);
-  const [sort, setSort] = useState("");
   const [messege, setMessege] = useState(["", ""]);
+  const [sort, setSort] = useState("");
+  const [total, setTotal] = useState(
+    user.carts?.reduce((a, r) => a + r.price * r.count, 0)
+  );
   const navigate = useNavigate();
   const maxPrice = products.length
     ? products.reduce((maxPriceObj, currentObj) => {
@@ -233,33 +236,88 @@ const Context = (props) => {
       setMessege(["Что то пошло не так", ""]);
     }
   };
+  let arr = [];
+  const removeFromCart = (id, clear = false) => {
+    arr.push(id);
+    let clearAll = () => {
+      let res = user.carts.slice(0);
+      arr.forEach((id) => (res = res.filter((it) => it.id !== id)));
+      return res;
+    };
 
-  const removeFromCart = (id) => {
-    user.id && api
-      .patch(`users/${user.id}`, {
-        headers: {
-          "content-type": "application/json",
-        },
-        json: {
-          carts:
-              user.carts?.find((el) => el.id === id).count > 1 ? user.carts.map((it) => {
-              if (it.id === id) {
-                return { ...it, count: it.count - 1 };
-              }
-                return it;
-              }) : user.carts?.filter((el) => el.id !== id),
-        },
-      }).json()
-      .then(res => {
-        setUser(res);
-        localStorage.setItem("user", JSON.stringify(res));
-        if (!(res.carts?.some(item => item.id === id))) {
-          setMessege(["Товар удален из корзины", ""]);
-        };
+    user.id &&
+      api
+        .patch(`users/${user.id}`, {
+          headers: {
+            "content-type": "application/json",
+          },
+          json: {
+            carts:
+              user.carts.find((el) => el.id === id)?.count > 1 &&
+              clear === false
+                ? user.carts.map((it) => {
+                    if (it.id === id) {
+                      return { ...it, count: it.count - 1 };
+                    }
+                    return it;
+                  })
+                : user.carts.find((el) => el.id === id)?.count <= 1 &&
+                  clear === false
+                ? user.carts.filter((el) => el.id !== id)
+                : clearAll(),
+          },
+        })
+        .json()
+        .then((res) => {
+          setUser(res);
+          localStorage.setItem("user", JSON.stringify(res));
+          if (!res.carts?.some((item) => item.id === id) && clear === false) {
+            setMessege(["Товар удален из корзины", ""]);
+          } else if (clear === true && messege[0] == "") {
+            setMessege(["Корзина очищена", ""]);
+          } else {
+            null;
+          }
+        });
+  };
+
+  useEffect(() => {
+    setTotal(user.carts?.reduce((a, r) => a + r.price * r.count, 0));
+  }, [user.carts]);
+  // end cart //
+  // start order
+  const handleOrder = (order) => {
+    user.id &&
+      api
+        .patch(`users/${user.id}`, {
+          headers: {
+            "content-type": "application/json",
+          },
+          json: {
+            orders: [...user.orders, order],
+          },
+        })
+        .json()
+        .then((res) => {
+          setUser(res);
+          localStorage.setItem("user", JSON.stringify(res));
+          setMessege(["Ваш заказ размещен, ожидайте звонка", "На Главную"]);
+          let ids = [];
+          for (
+            let i = 0;
+            i < user.orders[user.orders.length - 1]?.order.length;
+            i++
+          ) {
+            ids.push(user.orders[user.orders.length - 1]?.order[i].id);
+          }
+          ids.length &&
+            ids.forEach((id) => {
+              removeFromCart(id, true);
+          });
     });
   };
-  // end cart //
 
+  // end order
   let value = {
     addToCart,
     removeFromCart,
@@ -273,6 +331,7 @@ const Context = (props) => {
     favoritesHandler,
     messege,
     favorites,
+    handleOrder,
     products,
     search,
     handleSearch,
@@ -286,6 +345,9 @@ const Context = (props) => {
     setSlider,
     maxValue,
     getProducts,
+    total,
+    setTotal,
+    setMessege,
   };
 
   return (

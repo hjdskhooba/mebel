@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import { useLocation } from "react-router-dom";
 
 export const CustomContext = createContext();
 
@@ -18,6 +19,7 @@ const Context = (props) => {
   const [total, setTotal] = useState(
     user.carts?.reduce((a, r) => a + r.price * r.count, 0)
   );
+  const location = useLocation();
   const navigate = useNavigate();
   const maxPrice = products.length
     ? products.reduce((maxPriceObj, currentObj) => {
@@ -33,6 +35,9 @@ const Context = (props) => {
     }
     if (localStorage.getItem("favorites") !== null) {
       setFavorites(JSON.parse(localStorage.getItem("favorites")));
+    }
+    if (location.pathname === "/") {
+      setMessege(["", ""]);
     }
   }, []);
   const registerUser = (user) => {
@@ -273,8 +278,6 @@ const Context = (props) => {
           localStorage.setItem("user", JSON.stringify(res));
           if (!res.carts?.some((item) => item.id === id) && clear === false) {
             setMessege(["Товар удален из корзины", ""]);
-          } else if (clear === true && messege[0] == "") {
-            setMessege(["Корзина очищена", ""]);
           } else {
             null;
           }
@@ -284,6 +287,7 @@ const Context = (props) => {
   useEffect(() => {
     setTotal(user.carts?.reduce((a, r) => a + r.price * r.count, 0));
   }, [user.carts]);
+
   // end cart //
   // start order
   const handleOrder = (order) => {
@@ -313,8 +317,8 @@ const Context = (props) => {
           ids.length &&
             ids.forEach((id) => {
               removeFromCart(id, true);
-          });
-    });
+            });
+        });
   };
 
   // end order

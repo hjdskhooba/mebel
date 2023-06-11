@@ -11,7 +11,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default ({ product }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  
+
   return (
     <div className="product__swiper">
       <Swiper
@@ -22,20 +22,37 @@ export default ({ product }) => {
         className="mySwiper2"
       >
         <SwiperSlide>
+          <img src={product.images[0]} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
           <img
-            src={"../../" + product.images[0]
+            src={
+              !product.images[1].includes("https")
+                ? "../../" + product.images[1]
+                : product.images[1]
             }
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={"../../" + product.images[1]} alt="" />
+          <img
+            src={
+              !product.images[1].includes("https")
+                ? "../../" + product.images[2]
+                : product.images[1]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={"../../" + product.images[2]} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"../../" + product.images[3]} alt="" />
+          <img
+            src={
+              !product.images[3].includes("https")
+                ? "../../" + product.images[3]
+                : product.images[3]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="" />
@@ -71,16 +88,37 @@ export default ({ product }) => {
         freeMode={true}
       >
         <SwiperSlide>
-          <img src={"../../" + product.images[0]} alt="" />
+          <img src={product.images[0]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={"../../" + product.images[1]} alt="" />
+          <img
+            src={
+              !product.images[1].includes("https")
+                ? "../../" + product.images[1]
+                : product.images[1]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={"../../" + product.images[2]} alt="" />
+          <img
+            src={
+              !product.images[1].includes("https")
+                ? "../../" + product.images[2]
+                : product.images[1]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={"../../" + product.images[3]} alt="" />
+          <img
+            src={
+              !product.images[3].includes("https")
+                ? "../../" + product.images[3]
+                : product.images[3]
+            }
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="" />

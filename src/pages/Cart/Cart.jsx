@@ -21,7 +21,7 @@ const Cart = () => {
             <div className="cart__card" key={item.id}>
               <div className="cart__card-body">
                 <div className="cart__card-mob-btns">
-                  <img className="posle" src={"/" + item.images[0]} alt="" />
+                  <img className="posle" src={item.images[0]} alt="" />
                   <div>
                     <p className="cart__card-price mob-p">{item.price}P </p> /{" "}
                     <p className="cart__card-price mon-p">
@@ -36,7 +36,7 @@ const Cart = () => {
                     </button>
                   </div>
                 </div>
-                <img className="do" src={"/" + item.images[0]} alt="" />
+                <img className="do" src={item.images[0]} alt="" />
                 <div className="cart__card-info">
                   <h3 className="card__card-title">{item.title}</h3>
                   <br />
@@ -85,7 +85,7 @@ const Cart = () => {
           ))}
         </div>
         {
-          user.carts.length && <div className="cart__end">
+          user.carts?.length && <div className="cart__end">
           <p className="cart__end-total">Итоговая стоимость: {total}P</p>
           <button className="cart__end-checkout" onClick={()=>navigate("/checkout")}>Оформить заказ</button>
         </div>

@@ -1,7 +1,7 @@
 import ky from 'ky';
 
 const api = ky.create(
-    {prefixUrl: 'http://localhost:8080/'}
+    {prefixUrl: 'https://mebeldb.onrender.com/'}
 );
 
 export default api;

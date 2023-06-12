@@ -3,11 +3,17 @@
   &__form {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 300px;
+    justify-content: space-between;
     row-gap: 60px;
     margin-top: 50px;
     &-block {
-      width: calc(50% - 150px);
+      width: 40%;
+    }
+    @media (max-width: 670px) {
+      flex-direction: column;
+      &-block{
+        width: 100%;
+      }
     }
     &-title {
       font-weight: 500;

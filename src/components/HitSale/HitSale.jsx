@@ -15,11 +15,11 @@ const HitSale = () => {
       <div className="container">
         <h2 className="hitSale__title">Хиты продаж</h2>
         <div className="hitSale__row">
-          {hitSale.map((item) => (
+          {hitSale?.length ? hitSale.map((item) => (
             <Fragment key={item.id}>
               <Card item={item} />
             </Fragment>
-          ))}
+          )) : "Загрузка товаров"}
         </div>
       </div>
     </div>

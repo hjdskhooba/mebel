@@ -19,7 +19,7 @@
     "@mui/material": "^5.13.3",
     "concurrently": "^8.0.1",
     "jest": "^29.5.0",
-    "json-server": "^0.17.3",
+    "json-server": "^0.17.4",
     "json-server-auth": "^2.1.0",
     "ky": "^0.33.3",
     "material-ui": "^0.20.2",
